@@ -6,21 +6,24 @@ import {
   Dimensions,
   Image,
   Linking,
+  SafeAreaView,
 } from 'react-native';
 import { ChevronLeftIcon, ChevronRightIcon } from 'react-native-heroicons/solid';
 
 const fontMontserratRegular = 'Montserrat-Regular';
+const fontDMSansRegular = 'DMSans18pt-Regular';
+const fontDMSansBlack = 'DMSans18pt-Black';
 
-const linksButtons = [
+const musiclinksTaPButtons = [
   {
     id: 1,
     title: 'Terms of use',
-    link: 'https://www.termsfeed.com/live/826bd1df-20da-474d-9982-6b78da09c52e',
+    link: '',
   },
   {
     id: 2,
     title: 'Privacy Policy',
-    link: 'https://www.termsfeed.com/live/08074c95-a44e-4c3f-b020-8233b38bfe7f'
+    link: ''
   }
 ]
 
@@ -28,7 +31,7 @@ const SettingsScreen = ({ setSelectedScreen }) => {
   const [dimensions, setDimensions] = useState(Dimensions.get('window'));
 
   return (
-    <View style={{
+    <SafeAreaView style={{
       display: 'flex',
       alignSelf: 'center',
       width: '100%',
@@ -36,45 +39,41 @@ const SettingsScreen = ({ setSelectedScreen }) => {
       flex: 1
     }}>
       <View style={{
-        backgroundColor: '#23263C',
+        backgroundColor: '#0D0D0D',
         width: dimensions.width,
-        height: dimensions.height * 0.12,
-        alignItems: 'center',
-        alignSelf: 'flex-start',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        borderRadius: dimensions.width * 0.07,
+        alignItems: 'center',
+        alignSelf: 'center',
+        borderBottomColor: 'rgba(255, 255, 255, 0.39)',
+        borderBottomWidth: dimensions.width * 0.003,
         paddingHorizontal: dimensions.width * 0.05,
-        paddingTop: dimensions.height * 0.05,
+        paddingBottom: dimensions.height * 0.016,
         zIndex: 5
       }}>
         <TouchableOpacity onPress={() => {
-          // setSelectedScreen('Home');
-          backBackBack();
+          setSelectedScreen('Home');
         }} style={{
           flexDirection: 'row',
           alignItems: 'center',
-          paddingTop: dimensions.height * 0.019,
           alignSelf: 'flex-start',
         }}>
-          <ChevronLeftIcon size={dimensions.height * 0.03} color='#0A84FF' />
+          <ChevronLeftIcon size={dimensions.height * 0.03} color='#B38C31' />
           <Text
             style={{
               fontFamily: fontMontserratRegular,
-              color: '#0A84FF',
+              color: '#b38b31',
               fontSize: dimensions.width * 0.04,
-              textAlign: 'center',
-              alignSelf: 'center',
-              fontWeight: 400,
+              textAlign: 'left',
+              fontWeight: 500,
               marginLeft: dimensions.width * 0.01,
             }}>
             Back
           </Text>
         </TouchableOpacity>
-
         <Text
           style={{
-            fontFamily: fontMontserratRegular,
+            fontFamily: fontDMSansRegular,
             color: 'white',
             fontSize: dimensions.width * 0.046,
             textAlign: 'center',
@@ -85,58 +84,56 @@ const SettingsScreen = ({ setSelectedScreen }) => {
           }}>
           Settings
         </Text>
-        <View></View>
+        <Text></Text>
       </View>
+
+      <Image
+        source={require('../assets/images/settingsMusicImage.png')}
+        style={{
+          width: dimensions.width * 0.8,
+          height: dimensions.height * 0.3,
+          marginBottom: dimensions.height * 0.03,
+        }}
+        resizeMode='contain'
+      />
 
       <View style={{
         width: dimensions.width * 0.9,
-        marginTop: dimensions.height * 0.016,
         alignSelf: 'center',
         alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#23263C',
+        backgroundColor: '#202020',
         borderRadius: dimensions.width * 0.05,
-        padding: dimensions.width * 0.05,
       }}>
-        <Image
-          source={require('../assets/images/settingsHorseImage.png')}
-          style={{
-            width: dimensions.width * 0.7,
-            height: dimensions.height * 0.25,
-            marginBottom: dimensions.height * 0.03,
-          }}
-          resizeMode='contain'
-        />
+        {musiclinksTaPButtons.map((button) => (
+          <TouchableOpacity
+            key={button.id}
+            onPress={() => {
+              Linking.openURL(button.link);
+            }}
+            style={{
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+              width: dimensions.width * 0.9,
+              borderBottomColor: 'rgba(255, 255, 255, 0.39)',
+              borderBottomWidth: button.id !== musiclinksTaPButtons.length ? dimensions.width * 0.001 : 0,
+              paddingVertical: dimensions.height * 0.025,
+            }}>
+            <Text style={{
+              color: 'white',
+              fontSize: dimensions.width * 0.04,
+              fontFamily: fontMontserratRegular,
+              fontWeight: 500,
+              textAlign: 'left',
+              alignSelf: 'flex-start',
+              paddingHorizontal: dimensions.width * 0.05,
+              maxWidth: dimensions.width * 0.8,
+            }}>
+              {button.title}
+            </Text>
+          </TouchableOpacity>
+        ))}
       </View>
-
-      {linksButtons.map((button) => (
-        <TouchableOpacity
-          key={button.id}
-          onPress={() => {
-            Linking.openURL(button.link);
-          }}
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            padding: dimensions.width * 0.05,
-            backgroundColor: '#23263C',
-            borderRadius: dimensions.width * 0.05,
-            width: dimensions.width * 0.9,
-            marginTop: dimensions.height * 0.01,
-          }}>
-          <Text style={{
-            color: 'white',
-            fontSize: dimensions.width * 0.04,
-            fontFamily: fontMontserratRegular,
-            fontWeight: 400,
-          }}>
-            {button.title}
-          </Text>
-          <ChevronRightIcon size={dimensions.height * 0.03} color='white' />
-        </TouchableOpacity>
-      ))}
-    </View>
+    </SafeAreaView>
   );
 };
 

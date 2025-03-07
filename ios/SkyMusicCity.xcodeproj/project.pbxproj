@@ -10,30 +10,30 @@
 		0288973C176E4FB7BFAA2665 /* Cormorant-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B590095C2E56436CB5F8B2E4 /* Cormorant-Bold.ttf */; };
 		06C51F05DFBF4FC69A191BB2 /* MontserratAlternates-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88A0526611744E20B77C92E9 /* MontserratAlternates-Black.ttf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-SkyMusicCity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-SkyMusicCity.a */; };
-		1211FB689241489DA8D79C7C /* DMSans_18pt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69022CA880AD44529B47A57F /* DMSans_18pt-Bold.ttf */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		2326939F4A894AEE9105CF1D /* DMSans18pt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FD7B90E808749F08257F4FB /* DMSans18pt-Regular.ttf */; };
 		406C5A8FD82947D8858E1409 /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49468EFC91B945BAAFB3D3E7 /* SFProText-Regular.ttf */; };
 		45740089DC214E9FBE824683 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B48C17B40500449BB630C207 /* Poppins-Bold.ttf */; };
 		4E213459566E489CA30EA713 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE7582E60CD341BDA9CD47D1 /* Poppins-SemiBold.ttf */; };
 		52AE529939B549459B43963B /* Cormorant-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D4ED9C29C124B779E74D78E /* Cormorant-Medium.ttf */; };
 		56837C396D524154933C84BA /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 05CF193A082B403B9F6935A1 /* Poppins-Black.ttf */; };
-		59650B34DBD44AF1B6F14618 /* DMSans_18pt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F352F2BE57EC434FAF913D24 /* DMSans_18pt-Regular.ttf */; };
 		6BD5315FFB0C4A6B9DD15046 /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD04D3B508A44CD3AC49ABC4 /* Montserrat-Italic.ttf */; };
 		734F10561CE6503B7BCDAE01 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8FA478EA2DC6463BA737B5FD /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C60D4F978B764CC88476E93C /* Montserrat-Bold.ttf */; };
 		926E5995BEBD43D28B379151 /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCC1A2A466C549FAB889F2BB /* Poppins-Thin.ttf */; };
-		A4339119C6B24342AE432C60 /* DMSans_18pt-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21EDBE04F45A4F709174706E /* DMSans_18pt-Black.ttf */; };
 		B09576B7EF844B4CACF77C74 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71BA6C33D4AB4F8BA2E59022 /* Poppins-Italic.ttf */; };
 		B5ABF5C2288140D980E99268 /* Cormorant-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26FC1A17E6B4474587931931 /* Cormorant-SemiBold.ttf */; };
-		B78A4B9A0D25434E92C3B230 /* DMSans_18pt-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9C6D1D5BDCD4ABE995F6F91 /* DMSans_18pt-Medium.ttf */; };
 		B971393ABDA542C78F043B9C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1DBBC2ED99A443088DDEB333 /* Poppins-Regular.ttf */; };
 		DA9B38973BC94844B0234366 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC18084AF5A749A2B5959E79 /* Montserrat-Regular.ttf */; };
 		DC72E50CDB1942B5A3AE620D /* Cormorant-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70AD588F9DAF4487AF4314DC /* Cormorant-Regular.ttf */; };
 		E31F7081313B41E9B2027F88 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46B94DC309C14B029FF29C7D /* Poppins-Medium.ttf */; };
+		E42E9E1CBB7A47C5924BE34F /* DMSans18pt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6369F1878C504A129CC69293 /* DMSans18pt-Bold.ttf */; };
+		E84446227DAB4383B3B3CEB6 /* DMSans18pt-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E562D0CEF50344DE9D67FE97 /* DMSans18pt-Medium.ttf */; };
 		F0D1B57749F542F7A79BC01E /* Cormorant-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3CB6A29918024E338E030A14 /* Cormorant-Italic.ttf */; };
 		F17697B9B2CF429784693E77 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A155A2ACE28415A93082D9E /* Montserrat-SemiBold.ttf */; };
+		F43C8C4F124E42B2A2FAA81E /* DMSans18pt-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55F3DF27318743F095A546A6 /* DMSans18pt-Black.ttf */; };
 		F50678F6ACDE428DACCBA581 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E138E62ADA4020B81491F9 /* Montserrat-Medium.ttf */; };
 		F6AEA1C16D4E4E958FF653E1 /* MontserratAlternates-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4C3B0B5D6854D78A5473AF9 /* MontserratAlternates-Regular.ttf */; };
 		F90615F6D4C4426EBF809A37 /* MontserratAlternates-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41BD2B69C35F4C35A740E896 /* MontserratAlternates-Bold.ttf */; };
@@ -46,7 +46,6 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SkyMusicCity/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = SkyMusicCity/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		1DBBC2ED99A443088DDEB333 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../src/assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
-		21EDBE04F45A4F709174706E /* DMSans_18pt-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_18pt-Black.ttf"; path = "../src/assets/fonts/DMSans_18pt-Black.ttf"; sourceTree = "<group>"; };
 		26FC1A17E6B4474587931931 /* Cormorant-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Cormorant-SemiBold.ttf"; path = "../src/assets/fonts/Cormorant-SemiBold.ttf"; sourceTree = "<group>"; };
 		28E138E62ADA4020B81491F9 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Medium.ttf"; path = "../src/assets/fonts/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-SkyMusicCity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyMusicCity.debug.xcconfig"; path = "Target Support Files/Pods-SkyMusicCity/Pods-SkyMusicCity.debug.xcconfig"; sourceTree = "<group>"; };
@@ -54,10 +53,12 @@
 		41BD2B69C35F4C35A740E896 /* MontserratAlternates-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-Bold.ttf"; path = "../src/assets/fonts/MontserratAlternates-Bold.ttf"; sourceTree = "<group>"; };
 		46B94DC309C14B029FF29C7D /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../src/assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		49468EFC91B945BAAFB3D3E7 /* SFProText-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProText-Regular.ttf"; path = "../src/assets/fonts/SFProText-Regular.ttf"; sourceTree = "<group>"; };
+		4FD7B90E808749F08257F4FB /* DMSans18pt-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans18pt-Regular.ttf"; path = "../src/assets/fonts/DMSans18pt-Regular.ttf"; sourceTree = "<group>"; };
+		55F3DF27318743F095A546A6 /* DMSans18pt-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans18pt-Black.ttf"; path = "../src/assets/fonts/DMSans18pt-Black.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-SkyMusicCity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyMusicCity.release.xcconfig"; path = "Target Support Files/Pods-SkyMusicCity/Pods-SkyMusicCity.release.xcconfig"; sourceTree = "<group>"; };
 		5D4ED9C29C124B779E74D78E /* Cormorant-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Cormorant-Medium.ttf"; path = "../src/assets/fonts/Cormorant-Medium.ttf"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-SkyMusicCity.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SkyMusicCity.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		69022CA880AD44529B47A57F /* DMSans_18pt-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_18pt-Bold.ttf"; path = "../src/assets/fonts/DMSans_18pt-Bold.ttf"; sourceTree = "<group>"; };
+		6369F1878C504A129CC69293 /* DMSans18pt-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans18pt-Bold.ttf"; path = "../src/assets/fonts/DMSans18pt-Bold.ttf"; sourceTree = "<group>"; };
 		70AD588F9DAF4487AF4314DC /* Cormorant-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Cormorant-Regular.ttf"; path = "../src/assets/fonts/Cormorant-Regular.ttf"; sourceTree = "<group>"; };
 		71BA6C33D4AB4F8BA2E59022 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Italic.ttf"; path = "../src/assets/fonts/Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SkyMusicCity/AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,9 +72,8 @@
 		BD04D3B508A44CD3AC49ABC4 /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Italic.ttf"; path = "../src/assets/fonts/Montserrat-Italic.ttf"; sourceTree = "<group>"; };
 		C60D4F978B764CC88476E93C /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.ttf"; path = "../src/assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		D4C3B0B5D6854D78A5473AF9 /* MontserratAlternates-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-Regular.ttf"; path = "../src/assets/fonts/MontserratAlternates-Regular.ttf"; sourceTree = "<group>"; };
-		D9C6D1D5BDCD4ABE995F6F91 /* DMSans_18pt-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_18pt-Medium.ttf"; path = "../src/assets/fonts/DMSans_18pt-Medium.ttf"; sourceTree = "<group>"; };
+		E562D0CEF50344DE9D67FE97 /* DMSans18pt-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans18pt-Medium.ttf"; path = "../src/assets/fonts/DMSans18pt-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F352F2BE57EC434FAF913D24 /* DMSans_18pt-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_18pt-Regular.ttf"; path = "../src/assets/fonts/DMSans_18pt-Regular.ttf"; sourceTree = "<group>"; };
 		FE7582E60CD341BDA9CD47D1 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../src/assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,10 +118,6 @@
 				5D4ED9C29C124B779E74D78E /* Cormorant-Medium.ttf */,
 				70AD588F9DAF4487AF4314DC /* Cormorant-Regular.ttf */,
 				26FC1A17E6B4474587931931 /* Cormorant-SemiBold.ttf */,
-				21EDBE04F45A4F709174706E /* DMSans_18pt-Black.ttf */,
-				69022CA880AD44529B47A57F /* DMSans_18pt-Bold.ttf */,
-				D9C6D1D5BDCD4ABE995F6F91 /* DMSans_18pt-Medium.ttf */,
-				F352F2BE57EC434FAF913D24 /* DMSans_18pt-Regular.ttf */,
 				C60D4F978B764CC88476E93C /* Montserrat-Bold.ttf */,
 				BD04D3B508A44CD3AC49ABC4 /* Montserrat-Italic.ttf */,
 				28E138E62ADA4020B81491F9 /* Montserrat-Medium.ttf */,
@@ -138,6 +134,10 @@
 				FE7582E60CD341BDA9CD47D1 /* Poppins-SemiBold.ttf */,
 				BCC1A2A466C549FAB889F2BB /* Poppins-Thin.ttf */,
 				49468EFC91B945BAAFB3D3E7 /* SFProText-Regular.ttf */,
+				55F3DF27318743F095A546A6 /* DMSans18pt-Black.ttf */,
+				6369F1878C504A129CC69293 /* DMSans18pt-Bold.ttf */,
+				E562D0CEF50344DE9D67FE97 /* DMSans18pt-Medium.ttf */,
+				4FD7B90E808749F08257F4FB /* DMSans18pt-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -249,10 +249,6 @@
 				52AE529939B549459B43963B /* Cormorant-Medium.ttf in Resources */,
 				DC72E50CDB1942B5A3AE620D /* Cormorant-Regular.ttf in Resources */,
 				B5ABF5C2288140D980E99268 /* Cormorant-SemiBold.ttf in Resources */,
-				A4339119C6B24342AE432C60 /* DMSans_18pt-Black.ttf in Resources */,
-				1211FB689241489DA8D79C7C /* DMSans_18pt-Bold.ttf in Resources */,
-				B78A4B9A0D25434E92C3B230 /* DMSans_18pt-Medium.ttf in Resources */,
-				59650B34DBD44AF1B6F14618 /* DMSans_18pt-Regular.ttf in Resources */,
 				8FA478EA2DC6463BA737B5FD /* Montserrat-Bold.ttf in Resources */,
 				6BD5315FFB0C4A6B9DD15046 /* Montserrat-Italic.ttf in Resources */,
 				F50678F6ACDE428DACCBA581 /* Montserrat-Medium.ttf in Resources */,
@@ -269,6 +265,10 @@
 				4E213459566E489CA30EA713 /* Poppins-SemiBold.ttf in Resources */,
 				926E5995BEBD43D28B379151 /* Poppins-Thin.ttf in Resources */,
 				406C5A8FD82947D8858E1409 /* SFProText-Regular.ttf in Resources */,
+				F43C8C4F124E42B2A2FAA81E /* DMSans18pt-Black.ttf in Resources */,
+				E42E9E1CBB7A47C5924BE34F /* DMSans18pt-Bold.ttf in Resources */,
+				E84446227DAB4383B3B3CEB6 /* DMSans18pt-Medium.ttf in Resources */,
+				2326939F4A894AEE9105CF1D /* DMSans18pt-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,7 +486,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -555,7 +558,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

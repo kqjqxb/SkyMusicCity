@@ -20,6 +20,8 @@ import HorsesScreen from './HorsesScreen';
 import AddHorseScreen from './AddHorseScreen';
 import QuizzHippodromeScreen from './QuizzHippodromeScreen';
 import { ChevronLeftIcon, XCircleIcon } from 'react-native-heroicons/solid';
+import ArticlesScreen from './ArticlesScreen';
+import PlayerScreen from './PlayerScreen';
 
 const fontMontserratRegular = 'Montserrat-Regular';
 const fontDMSansRegular = 'DMSans18pt-Regular';
@@ -584,17 +586,27 @@ const HomeScreen = () => {
                     ))}
                   </View>
                 ) : (
-                  <Text
-                    style={{
-                      fontFamily: fontDMSansBlack,
-                      color: 'white',
-                      fontSize: dimensions.width * 0.05,
-                      textAlign: 'center',
-                      alignSelf: 'center',
-                      marginTop: dimensions.height * 0.05,
-                    }}>
-                    Add some music to see it here
-                  </Text>
+                  <TouchableOpacity style={{
+                    width: dimensions.width * 0.9,
+                    marginTop: dimensions.height * 0.01,
+                    backgroundColor: '#202020',
+                    borderRadius: dimensions.width * 0.034,
+                    alignSelf: 'center',
+                    paddingVertical: dimensions.height * 0.05,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                    <Text
+                      style={{
+                        fontFamily: fontDMSansBlack,
+                        color: 'white',
+                        fontSize: dimensions.width * 0.05,
+                        textAlign: 'center',
+                        alignSelf: 'center',
+                      }}>
+                      Add some music to see it here
+                    </Text>
+                  </TouchableOpacity>
                 )}
               </View>
             </View>
@@ -641,6 +653,10 @@ const HomeScreen = () => {
         <AddRacetrackScreen setSelectedScreen={setSelectedScreen} racetracks={racetracks} setRacetracks={setRacetracks} />
       ) : selectedScreen === 'AddHorse' ? (
         <AddHorseScreen setSelectedScreen={setSelectedScreen} horses={horses} setHorses={setHorses} />
+      ) : selectedScreen === 'Articles' ? (
+        <ArticlesScreen setSelectedScreen={setSelectedScreen} />
+      ) : selectedScreen === 'Player' ? (
+        <PlayerScreen setSelectedScreen={setSelectedScreen} />
       ) : selectedScreen === 'Quiz' ? (
         <QuizzHippodromeScreen setSelectedScreen={setSelectedScreen} isQuizStarted={isQuizStarted} setIsQuizStarted={setIsQuizStarted} />
       ) : null}
