@@ -35,6 +35,8 @@
 <string>We need access to your documents to save and play audio files.</string>
 <key>NSMicrophoneUsageDescription</key>
 <string>We need access to your microphone to record audio.</string>
+<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need access to your photo library to select images for playlists your images.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Cormorant-Bold.ttf</string>

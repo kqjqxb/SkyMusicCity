@@ -18,12 +18,12 @@ const musiclinksTaPButtons = [
   {
     id: 1,
     title: 'Terms of use',
-    link: '',
+    link: 'https://www.termsfeed.com/live/8eeffd4c-e1f9-4edf-8122-97217689b2fe',
   },
   {
     id: 2,
     title: 'Privacy Policy',
-    link: ''
+    link: 'https://www.termsfeed.com/live/5a7227ad-8d7d-4698-ae44-18e66b41d76f'
   }
 ]
 

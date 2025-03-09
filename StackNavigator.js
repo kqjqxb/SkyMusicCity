@@ -31,32 +31,32 @@ const HippodromeGuideStack = () => {
 const AppNavigator = () => {
   const dispatch = useDispatch();
   const { user, setUser } = useContext(UserContext);
-  const [initializingHippodromeGuideApp, setInitializingHippodromeGuideApp] = useState(true);
+  const [initializingSkyMusicCityApp, setInitializingSkyMusicCityApp] = useState(true);
 
   useEffect(() => {
     dispatch(loadUserData());
   }, [dispatch]);
 
   useEffect(() => {
-    const loadHippodromeGuideUser = async () => {
+    const loadSkyMusicCityApp = async () => {
       try {
         const deviceId = await DeviceInfo.getUniqueId();
         const storageKey = `currentUser_${deviceId}`;
-        const storedHippodromeGuideUser = await AsyncStorage.getItem(storageKey);
+        const storedSkyMusicCityUser = await AsyncStorage.getItem(storageKey);
 
-        if (storedHippodromeGuideUser) {
-          setUser(JSON.parse(storedHippodromeGuideUser));
+        if (storedSkyMusicCityUser) {
+          setUser(JSON.parse(storedSkyMusicCityUser));
         }
       } catch (error) {
-        console.error('Error loading of hippodrome user', error);
+        console.error('Error loading of sky music city user', error);
       } finally {
-        setInitializingHippodromeGuideApp(false);
+        setInitializingSkyMusicCityApp(false);
       }
     };
-    loadHippodromeGuideUser();
+    loadSkyMusicCityApp();
   }, [setUser]);
 
-  if (initializingHippodromeGuideApp) {
+  if (initializingSkyMusicCityApp) {
     return (
       <View style={{
         backgroundColor: '#0D0D0D',

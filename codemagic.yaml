@@ -10,9 +10,9 @@ workflows:
         XCODE_WORKSPACE: "SkyMusicCity.xcworkspace" # <----
         XCODE_SCHEME: "SkyMusicCity" # <----
         BUNDLE_ID: "com.sky.music.city.app" # <----
-        APP_STORE_APP_ID: 6742878508 # <----
-        APP_STORE_CONNECT_KEY_ID: "U3DM6YLK4Z" # <----
-        APP_STORE_CONNECT_ISSUER_ID: "d4df78c8-4a12-4f6f-a077-12fb95dfc990" # <----
+        APP_STORE_APP_ID: 6743056383 # <----
+        APP_STORE_CONNECT_KEY_ID: "45795F3Q42" # <----
+        APP_STORE_CONNECT_ISSUER_ID: "2bdc0e12-b19d-4fce-af61-325ab56b8b06" # <----
         node: latest
         xcode: latest
         cocoapods: default
@@ -52,7 +52,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - horatiogardner1997@gmail.com       # <----
+          - z.morgrim@ababridge.digital       # <----
         notify:
           success: true
           failure: false
