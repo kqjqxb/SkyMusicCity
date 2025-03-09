@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -14,16 +14,12 @@ import musicArticlesData from '../components/musicArticlesData';
 
 const fontMontserratRegular = 'Montserrat-Regular';
 const fontDMSansRegular = 'DMSans18pt-Regular';
-const fontDMSansBlack = 'DMSans18pt-Black';
 
 const ArticlesScreen = ({ setSelectedScreen }) => {
   const [dimensions, setDimensions] = useState(Dimensions.get('window'));
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedMusicArticle, setSelectedMusicArticle] = useState(null);
-  const scrollViewHippodromeRef = useRef(null);
-  // useEffect(() => {
-  //   scrollViewHippodromeRef.current.scrollTo({ y: 0, animated: false });
-  // }, []);
+  const scrollViewSkyMusicRef = useRef(null);
 
   return (
     <SafeAreaView style={{
@@ -82,7 +78,7 @@ const ArticlesScreen = ({ setSelectedScreen }) => {
       </View>
 
 
-      <ScrollView ref={scrollViewHippodromeRef} contentContainerStyle={{ paddingBottom: dimensions.height * 0.16 }} style={{}}>
+      <ScrollView ref={scrollViewSkyMusicRef} contentContainerStyle={{ paddingBottom: dimensions.height * 0.16 }} style={{}}>
         {musicArticlesData.map((article,) => (
           <TouchableOpacity
             onPress={() => {
@@ -155,7 +151,8 @@ const ArticlesScreen = ({ setSelectedScreen }) => {
             zIndex: 5
           }}>
             <TouchableOpacity onPress={() => {
-              setModalVisible(false);
+              // setModalVisible(false);
+              closeArticle();
             }} style={{
               flexDirection: 'row',
               alignItems: 'center',

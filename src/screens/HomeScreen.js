@@ -130,8 +130,6 @@ const HomeScreen = () => {
     setDate(selectedDate);
   };
 
-
-
   const handleDeleteHomeMusic = async (id) => {
     const musicToDelete = allMusic.find(item => item.id === id);
     const updatedAllMusic = allMusic.filter(item => item.id !== id);
@@ -144,10 +142,10 @@ const HomeScreen = () => {
       if (musicDate === currentDate) {
         const updatedHomeMusics = homeMusics.filter(item => item.id !== id);
         setHomeMusics(updatedHomeMusics);
-        setTodayListened(prev => prev - musicToDelete.minutes); // Віднімаємо хвилини від todayListened
+        setTodayListened(prev => prev - musicToDelete.minutes); 
       }
 
-      setTotalListened(prev => prev - musicToDelete.minutes); // Віднімаємо хвилини від totalListened
+      setTotalListened(prev => prev - musicToDelete.minutes); 
     }
 
     await AsyncStorage.setItem('homeMusics', JSON.stringify(updatedAllMusic));
@@ -159,7 +157,7 @@ const HomeScreen = () => {
     const newMusic = {
       id: newId,
       date: date,
-      minutes: parseInt(minutes, 10), // Перетворюємо хвилини на число
+      minutes: parseInt(minutes, 10),
       modeOfMusic: selectedModeOfMusic,
     };
 
@@ -172,10 +170,10 @@ const HomeScreen = () => {
 
       if (musicDate === currentDate) {
         setHomeMusics(prev => [newMusic, ...prev]);
-        setTodayListened(prev => prev + newMusic.minutes); // Оновлюємо todayListened
+        setTodayListened(prev => prev + newMusic.minutes); 
       }
 
-      setTotalListened(prev => prev + newMusic.minutes); // Оновлюємо totalListened
+      setTotalListened(prev => prev + newMusic.minutes); 
       setModalVisible(false);
       setMinutes('');
       setDate(new Date());
@@ -200,11 +198,11 @@ const HomeScreen = () => {
           });
           setAllMusic(parsedHomeMusics);
           setHomeMusics(filteredHomeMusics);
-          const totalMinutesToday = filteredHomeMusics.reduce((sum, item) => sum + parseInt(item.minutes, 10), 0); // Перетворюємо хвилини на число
-          setTodayListened(totalMinutesToday); // Оновлюємо todayListened
+          const totalMinutesToday = filteredHomeMusics.reduce((sum, item) => sum + parseInt(item.minutes, 10), 0); 
+          setTodayListened(totalMinutesToday); 
 
-          const totalMinutesAllTime = parsedHomeMusics.reduce((sum, item) => sum + parseInt(item.minutes, 10), 0); // Перетворюємо хвилини на число
-          setTotalListened(totalMinutesAllTime); // Оновлюємо totalListened
+          const totalMinutesAllTime = parsedHomeMusics.reduce((sum, item) => sum + parseInt(item.minutes, 10), 0);
+          setTotalListened(totalMinutesAllTime); 
 
           await AsyncStorage.setItem('homeMusics', JSON.stringify(parsedHomeMusics));
         }
@@ -225,9 +223,6 @@ const HomeScreen = () => {
 
     return () => clearTimeout(timer);
   }, [selectedScreen]);
-
-
-
 
   return (
     <View style={{
@@ -498,7 +493,7 @@ const HomeScreen = () => {
                       }}>
                         <BarChart
                           data={getWeeklyData()}
-                          width={dimensions.width * 1} // Збільшення ширини графіка
+                          width={dimensions.width * 1} 
                           height={dimensions.height * 0.25}
                           chartConfig={{
                             strokeWidth: 1,
@@ -512,7 +507,7 @@ const HomeScreen = () => {
                               borderRadius: dimensions.width * 0.034,
                             },
                             propsForBackgroundLines: {
-                              strokeDasharray: '', // solid background lines with no dashes
+                              strokeDasharray: '', 
                             },
                           }}
                           verticalLabelRotation={30}
@@ -806,7 +801,7 @@ const HomeScreen = () => {
               style={{
                 fontFamily: fontDMSansRegular,
                 color: 'white',
-                fontSize: dimensions.width * 0.035,
+                fontSize: dimensions.width * 0.04,
                 textAlign: 'left',
                 alignSelf: 'center',
                 fontWeight: 700,

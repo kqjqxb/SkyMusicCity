@@ -14,7 +14,7 @@ import { loadUserData } from './src/redux/userSlice';
 
 const Stack = createNativeStackNavigator();
 
-const HippodromeGuideStack = () => {
+const SkyMusicCityStack = () => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Provider store={store}>
@@ -79,4 +79,4 @@ const AppNavigator = () => {
 };
 
 
-export default HippodromeGuideStack;
+export default SkyMusicCityStack;

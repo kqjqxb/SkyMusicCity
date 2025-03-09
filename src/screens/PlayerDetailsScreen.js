@@ -15,9 +15,8 @@ import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { ChevronLeftIcon, XCircleIcon } from 'react-native-heroicons/solid';
 import DocumentPicker from 'react-native-document-picker';
 
-const fontMontserratRegular = 'Montserrat-Regular';
+// const fontDMSansRegular = 'Montserrat-Regular';
 const fontDMSansRegular = 'DMSans18pt-Regular';
-const fontDMSansBlack = 'DMSans18pt-Black';
 
 const PlayerDetailsScreen = ({ setSelectedScreen, selectedPlaylist, setSelectedPlaylist, setMusicPlaylists, setIsPlaylistVisible, musicPlaylists }) => {
   const [dimensions, setDimensions] = useState(Dimensions.get('window'));
@@ -365,29 +364,39 @@ const PlayerDetailsScreen = ({ setSelectedScreen, selectedPlaylist, setSelectedP
         }}>
           <View style={{
             paddingHorizontal: 0,
-            backgroundColor: 'white',
+            backgroundColor: '#1E1E1E',
             borderRadius: dimensions.width * 0.05,
             paddingTop: dimensions.width * 0.07,
             alignItems: 'center',
             width: dimensions.width * 0.8,
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+            elevation: 3,
+            
           }}>
             <Text style={{
               fontSize: dimensions.width * 0.044,
               marginBottom: dimensions.height * 0.005,
               textAlign: 'center',
-              fontFamily: fontMontserratRegular,
+              fontFamily: fontDMSansRegular,
               paddingHorizontal: dimensions.width * 0.073,
               fontWeight: 600,
               alignSelf: 'center',
+              color: 'white'
             }}>
               Removal
             </Text>
             <Text style={{
               paddingHorizontal: dimensions.width * 0.073,
               textAlign: 'center',
-              fontFamily: fontMontserratRegular,
+              fontFamily: fontDMSansRegular,
               fontSize: dimensions.width * 0.034,
               marginBottom: dimensions.height * 0.019,
+              color: 'white'
             }}>
               Are you sure you want to delete this?
             </Text>
@@ -414,7 +423,7 @@ const PlayerDetailsScreen = ({ setSelectedScreen, selectedPlaylist, setSelectedP
                   textAlign: 'center',
                   alignSelf: 'center',
                   fontWeight: 500,
-                  fontFamily: fontMontserratRegular,
+                  fontFamily: fontDMSansRegular,
                 }}>
                   Cancel
                 </Text>
@@ -435,7 +444,7 @@ const PlayerDetailsScreen = ({ setSelectedScreen, selectedPlaylist, setSelectedP
                 <Text style={{
                   color: 'black',
                   textAlign: 'center',
-                  fontFamily: fontMontserratRegular,
+                  fontFamily: fontDMSansRegular,
                   fontSize: dimensions.width * 0.043,
                   alignSelf: 'center',
                   fontWeight: 500,
@@ -484,7 +493,7 @@ const PlayerDetailsScreen = ({ setSelectedScreen, selectedPlaylist, setSelectedP
               <ChevronLeftIcon size={dimensions.height * 0.03} color='#B38C31' />
               <Text
                 style={{
-                  fontFamily: fontMontserratRegular,
+                  fontFamily: fontDMSansRegular,
                   color: '#b38b31',
                   fontSize: dimensions.width * 0.04,
                   textAlign: 'center',
@@ -523,7 +532,7 @@ const PlayerDetailsScreen = ({ setSelectedScreen, selectedPlaylist, setSelectedP
             >
               <Text
                 style={{
-                  fontFamily: fontMontserratRegular,
+                  fontFamily: fontDMSansRegular,
                   color: '#B38C31',
                   opacity: 0,
                   fontSize: dimensions.width * 0.043,

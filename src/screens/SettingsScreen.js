@@ -8,11 +8,10 @@ import {
   Linking,
   SafeAreaView,
 } from 'react-native';
-import { ChevronLeftIcon, ChevronRightIcon } from 'react-native-heroicons/solid';
+import { ChevronLeftIcon } from 'react-native-heroicons/solid';
 
 const fontMontserratRegular = 'Montserrat-Regular';
 const fontDMSansRegular = 'DMSans18pt-Regular';
-const fontDMSansBlack = 'DMSans18pt-Black';
 
 const musiclinksTaPButtons = [
   {
@@ -27,7 +26,7 @@ const musiclinksTaPButtons = [
   }
 ]
 
-const SettingsScreen = ({ setSelectedScreen }) => {
+const SettingsScreen = ({ }) => {
   const [dimensions, setDimensions] = useState(Dimensions.get('window'));
 
   return (
@@ -52,7 +51,8 @@ const SettingsScreen = ({ setSelectedScreen }) => {
         zIndex: 5
       }}>
         <TouchableOpacity onPress={() => {
-          setSelectedScreen('Home');
+          closeSkyMusicSettings();
+          // setSelectedScreen('Home');
         }} style={{
           flexDirection: 'row',
           alignItems: 'center',

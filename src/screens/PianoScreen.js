@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -9,11 +9,8 @@ import {
   ImageBackground,
 } from 'react-native';
 import Sound from 'react-native-sound';
-import { useAudio } from '../context/AudioContext';
 
-const fontMontserratRegular = 'Montserrat-Regular';
 const fontDMSansRegular = 'DMSans18pt-Regular';
-const fontDMSansBlack = 'DMSans18pt-Black';
 
 const pianoWhiteButtonsSounds = [
   {
@@ -44,12 +41,6 @@ const pianoWhiteButtonsSounds = [
     id: 1,
     sound: require('../assets/sounds/piano1.wav'),
   },
-  
-  
-  
-  
-  
-  
 ]
 
 const pianoBlackButtonsSounds = [
@@ -247,7 +238,7 @@ const PianoScreen = ({ setSelectedScreen, isPianoStarted, setIsPianoStarted }) =
                   shadowOpacity: 1,
                   shadowRadius: 1,
                   elevation: 3,
-                  zIndex: 1, // Lower zIndex for white keys
+                  zIndex: 1,
                 }}
               />
             ))}
@@ -278,7 +269,7 @@ const PianoScreen = ({ setSelectedScreen, isPianoStarted, setIsPianoStarted }) =
                     shadowOpacity: 1,
                     shadowRadius: 1,
                     elevation: 3,
-                    zIndex: 2, // Higher zIndex for black keys
+                    zIndex: 2,
                     marginBottom: dimensions.height * 0.034,
                   }}
                 />

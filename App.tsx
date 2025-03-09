@@ -1,8 +1,8 @@
 import React from 'react';
-import HippodromeGuideStack from './StackNavigator';
+import SkyMusicCityStack from './StackNavigator';
 
 function App() {
-  return <HippodromeGuideStack />;
+  return <SkyMusicCityStack />;
 }
 
 export default App;

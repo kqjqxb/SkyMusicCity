@@ -18,9 +18,7 @@ import DocumentPicker from 'react-native-document-picker';
 import PlayerDetailsScreen from './PlayerDetailsScreen';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
-const fontMontserratRegular = 'Montserrat-Regular';
 const fontDMSansRegular = 'DMSans18pt-Regular';
-const fontDMSansBlack = 'DMSans18pt-Black';
 
 const PlayerScreen = ({ selectedScreen, setSelectedScreen }) => {
   const [dimensions, setDimensions] = useState(Dimensions.get('window'));
@@ -32,7 +30,7 @@ const PlayerScreen = ({ selectedScreen, setSelectedScreen }) => {
   const [sounds, setSounds] = useState([]);
   const [musicPlaylists, setMusicPlaylists] = useState([]);
   const [musicTitle, setMusicTitle] = useState('');
-  const scrollViewHippodromeRef = useRef(null);
+  const scrollViewSkyMusicRef = useRef(null);
   const [selectedTrackToDelete, setSelectedTrackToDelete] = useState(null);
   const [isPlaylistVisible, setIsPlaylistVisible] = useState(false);
   const [selectedPlaylist, setSelectedPlaylist] = useState(null);
@@ -97,7 +95,7 @@ const PlayerScreen = ({ selectedScreen, setSelectedScreen }) => {
     setSounds(updatedSounds);
   };
 
-  const renderRightActions = (track) => (
+  const renderRightSkyMusicActions = (track) => (
     <TouchableOpacity
       onPress={() => removeTrack()}
       style={{
@@ -184,69 +182,6 @@ const PlayerScreen = ({ selectedScreen, setSelectedScreen }) => {
     }
   };
 
-  // const moveFileToDocs = async (fileUri, fileName) => {
-  //   const newPath = `${RNFS.DocumentDirectoryPath}/${fileName}`;
-  //   try {
-  //     await RNFS.copyFile(fileUri, newPath);
-  //     return newPath;
-  //   } catch (error) {
-  //     console.error('Помилка копіювання файлу:', error);
-  //     return null;
-  //   }
-  // };
-
-  // filepath: /Users/user/Downloads/ReactNative/SkyMusicCity/src/screens/PlayerScreen.js
-  // Sound.setCategory('Playback'); // Додає категорію для iOS (опціонально)
-
-  // const handleMusicPicker = async () => {
-  //   try {
-  //     const res = await DocumentPicker.pickSingle({
-  //       type: [DocumentPicker.types.audio],
-  //     });
-  //     console.log('Обраний файл:', res);
-  //     if (!res?.uri) return;
-
-  //     // Беремо URI та декодуємо
-  //     let fileUri = decodeURI(res.fileCopyUri || res.uri);
-
-  //     // Видаляємо "file://"
-  //     let cleanPath = fileUri.replace('file://', '');
-
-  //     // При потребі перейменовуємо файл (наприклад, без дужок)
-  //     let safeName = res.name.replace(/[()]/g, '').replace(/\s+/g, '_');
-
-  //     const fileExists = await RNFS.exists(cleanPath);
-  //     if (!fileExists) {
-  //       // Копіюємо з "file://" і з новим іменем
-  //       const newPath = await moveFileToDocs(`file://${cleanPath}`, safeName);
-  //       if (!newPath) return;
-  //       cleanPath = newPath.replace('file://', '');
-  //     }
-
-  //     // Створюємо звук
-  //     const sound = new Sound(cleanPath, '', error => {
-  //       if (error) {
-  //         console.error('Помилка завантаження звуку:', error);
-  //         return;
-  //       }
-  //       console.log('Звук успішно завантажено!');
-
-  //       const newTrack = {
-  //         id: sounds.length > 0 ? Math.max(...sounds.map(track => track.id)) + 1 : 1,
-  //         uri: cleanPath,
-  //         name: musicTitle ? musicTitle : res.name || 'Unknown Track',
-  //         duration: sound.getDuration(), // Отримання тривалості
-  //       };
-  //       setSounds([newTrack, ...sounds]);
-  //       setMusicTitle('');
-  //     });
-  //   } catch (err) {
-  //     console.error('DocumentPicker Error: ', err);
-  //   }
-  // };
-
-
-
   const handleDeletePlaylistImage = (index) => {
     Alert.alert(
       "Delete playlist image",
@@ -298,7 +233,7 @@ const PlayerScreen = ({ selectedScreen, setSelectedScreen }) => {
             <ChevronLeftIcon size={dimensions.height * 0.03} color='#B38C31' />
             <Text
               style={{
-                fontFamily: fontMontserratRegular,
+                fontFamily: fontDMSansRegular,
                 color: '#b38b31',
                 fontSize: dimensions.width * 0.04,
                 textAlign: 'center',
@@ -320,7 +255,7 @@ const PlayerScreen = ({ selectedScreen, setSelectedScreen }) => {
             textAlign: 'center',
             alignSelf: 'center',
             fontWeight: 700,
-            marginLeft: !isPlaylistVisible ? dimensions.width * 0.044 : -dimensions.width * 0.12,
+            marginLeft: !isPlaylistVisible ? dimensions.width * 0.044 : -dimensions.width * 0.111,
             paddingBottom: dimensions.height * 0.016,
           }}>
           Music player
@@ -414,7 +349,7 @@ const PlayerScreen = ({ selectedScreen, setSelectedScreen }) => {
             flex: 1,
             alignItems: 'center',
           }}>
-            <ScrollView ref={scrollViewHippodromeRef} contentContainerStyle={{ paddingBottom: dimensions.height * 0.16 }} style={{}}>
+            <ScrollView ref={scrollViewSkyMusicRef} contentContainerStyle={{ paddingBottom: dimensions.height * 0.16 }} style={{}}>
               <View style={{
                 width: dimensions.width * 0.9,
                 flexDirection: 'row',
@@ -449,10 +384,8 @@ const PlayerScreen = ({ selectedScreen, setSelectedScreen }) => {
                       backgroundColor: '#202020',
                       borderBottomLeftRadius: dimensions.width * 0.034,
                       borderBottomRightRadius: dimensions.width * 0.034,
-
                       position: 'relative',
                       zIndex: 1,
-
                     }}>
                       <Image
                         source={{ uri: item.image }}
@@ -477,7 +410,6 @@ const PlayerScreen = ({ selectedScreen, setSelectedScreen }) => {
                         }}>
                         {item.title}
                       </Text>
-
                     </View>
                   </TouchableOpacity>
                 ))}
@@ -514,13 +446,11 @@ const PlayerScreen = ({ selectedScreen, setSelectedScreen }) => {
             </TouchableOpacity>
           </View>
         )
-
       ) : (
         <>
           <PlayerDetailsScreen musicPlaylists={musicPlaylists} setSelectedPlaylist={setSelectedPlaylist} setMusicPlaylists={setMusicPlaylists} setIsPlaylistVisible={setIsPlaylistVisible} selectedPlaylist={selectedPlaylist} />
         </>
       )}
-
 
       <Modal
         animationType="slide"
@@ -549,9 +479,11 @@ const PlayerScreen = ({ selectedScreen, setSelectedScreen }) => {
           }}>
             <TouchableOpacity onPress={() => {
               if (isFirstModalWasVisible) {
-                setIsFirstModalWasVisible(false);
+                // setIsFirstModalWasVisible(false);
+                closeAddPlayer();
               } else {
-                setModalVisible(false);
+                // setModalVisible(false);
+                closeAddPlayer();
                 setSounds([]);
                 setTitle('');
                 setDescription('');
@@ -566,7 +498,7 @@ const PlayerScreen = ({ selectedScreen, setSelectedScreen }) => {
               <ChevronLeftIcon size={dimensions.height * 0.03} color='#B38C31' />
               <Text
                 style={{
-                  fontFamily: fontMontserratRegular,
+                  fontFamily: fontDMSansRegular,
                   color: '#b38b31',
                   fontSize: dimensions.width * 0.04,
                   textAlign: 'center',
@@ -606,7 +538,7 @@ const PlayerScreen = ({ selectedScreen, setSelectedScreen }) => {
             >
               <Text
                 style={{
-                  fontFamily: fontMontserratRegular,
+                  fontFamily: fontDMSansRegular,
                   color: '#B38C31',
                   opacity: title.length === 0 ? 0.5 : 1,
                   fontSize: dimensions.width * 0.043,
@@ -692,10 +624,8 @@ const PlayerScreen = ({ selectedScreen, setSelectedScreen }) => {
                     }}
                     resizeMode='contain'
                   />
-
                 </TouchableOpacity>
               )}
-
 
               <View style={{
                 flexDirection: 'row',
@@ -858,11 +788,10 @@ const PlayerScreen = ({ selectedScreen, setSelectedScreen }) => {
                         swipeableRefs.current.delete(track.id);
                       }
                     }}
-                    renderRightActions={() => renderRightActions(track)}
+                    renderRightActions={() => renderRightSkyMusicActions(track)}
                     onSwipeableOpen={() => handleSwipeableTrackOpen(track.id)}
                     onSwipeableClose={() => handleSwipeableTrackClose(track.id)}
                   >
-
                     <View key={track.id} style={{
                       width: dimensions.width * 0.9,
                       alignSelf: 'center',
@@ -910,13 +839,8 @@ const PlayerScreen = ({ selectedScreen, setSelectedScreen }) => {
                   </Swipeable>
                 ))
               )}
-
-
-
             </ScrollView>
           )}
-
-
         </SafeAreaView>
       </Modal>
     </SafeAreaView>
