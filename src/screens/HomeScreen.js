@@ -8,20 +8,17 @@ import {
   SafeAreaView,
   Modal,
   TextInput,
+  Alert,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import SettingsScreen from './SettingsScreen';
 import { ScrollView } from 'react-native-gesture-handler';
-import LocDetailsScreen from './LocDetailsScreen';
-import RacetracksScreen from './RacetracksScreen';
-import AddRacetrackScreen from './AddRacetrackScreen';
-import HorsesScreen from './HorsesScreen';
-import AddHorseScreen from './AddHorseScreen';
-import QuizzHippodromeScreen from './QuizzHippodromeScreen';
 import { ChevronLeftIcon, XCircleIcon } from 'react-native-heroicons/solid';
 import ArticlesScreen from './ArticlesScreen';
 import PlayerScreen from './PlayerScreen';
+import PianoScreen from './PianoScreen';
+import { BarChart } from 'react-native-chart-kit';
 
 const fontMontserratRegular = 'Montserrat-Regular';
 const fontDMSansRegular = 'DMSans18pt-Regular';
@@ -69,10 +66,6 @@ const formatSkyMusicDate = (date) => {
 const HomeScreen = () => {
   const [dimensions, setDimensions] = useState(Dimensions.get('window'));
   const [selectedScreen, setSelectedScreen] = useState('Home');
-  const [selectedHippodromeLoc, setSelectedHippodromeLoc] = useState(null);
-  const [racetracks, setRacetracks] = useState([]);
-  const [horses, setHorses] = useState([]);
-  const [isQuizStarted, setIsQuizStarted] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [date, setDate] = useState(new Date());
   const [minutes, setMinutes] = useState('');
@@ -82,52 +75,83 @@ const HomeScreen = () => {
   const [selectedModeOfMusic, setSelectedModeOfMusic] = useState('');
   const [deleteHomeMusicModalVisible, setDeleteHomeMusicModalVisible] = useState(false);
   const [homeMusicToDelete, setHomeMusicToDelete] = useState(null);
+  const [isPianoStarted, setIsPianoStarted] = useState(false);
+  const [todayListened, setTodayListened] = useState(0);
+  const [totalListened, setTotalListened] = useState(0);
+  const [allMusic, setAllMusic] = useState([]);
+
+
+  const getWeeklyData = () => {
+    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const weeklyData = Array(7).fill(0);
+
+    allMusic.forEach(item => {
+      const day = new Date(item.date).getDay();
+      weeklyData[day] += parseInt(item.minutes, 10);
+    });
+
+    const maxMinutes = Math.max(...weeklyData);
+    const barColors = weeklyData.map(minutes => minutes === maxMinutes ? '#B38C31' : '#202020');
+
+    return {
+      labels: daysOfWeek,
+      datasets: [{
+        data: weeklyData,
+        colors: barColors.map(color => () => color),
+      }],
+    };
+  };
+
+  const getMonthlyData = () => {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
+    const monthlyData = Array(7).fill(0);
+
+    allMusic.forEach(item => {
+      const month = new Date(item.date).getMonth();
+      if (month < 7) {
+        monthlyData[month] += parseInt(item.minutes, 10);
+      }
+    });
+
+    const maxMinutes = Math.max(...monthlyData);
+    const barColors = monthlyData.map(minutes => minutes === maxMinutes ? '#B38C31' : '#202020');
+
+    return {
+      labels: months,
+      datasets: [{
+        data: monthlyData,
+        colors: barColors.map(color => () => color),
+      }],
+    };
+  };
 
   const handleDateChange = (event, selectedDate) => {
-    if (selectedDate && selectedDate >= new Date().setHours(0, 0, 0, 0)) {
-      setDate(selectedDate);
-    } else {
-      Alert.alert('Please select a future date.');
-    }
+
+    setDate(selectedDate);
   };
+
+
 
   const handleDeleteHomeMusic = async (id) => {
-    const updatedHomeMusics = homeMusics.filter(item => item.id !== id);
-    setHomeMusics(updatedHomeMusics);
-    setDeleteHomeMusicModalVisible(false);
-    await AsyncStorage.setItem('homeMusics', JSON.stringify(updatedHomeMusics));
+    const musicToDelete = allMusic.find(item => item.id === id);
+    const updatedAllMusic = allMusic.filter(item => item.id !== id);
+    setAllMusic(updatedAllMusic);
+
+    if (musicToDelete) {
+      const musicDate = new Date(musicToDelete.date).toDateString();
+      const currentDate = new Date().toDateString();
+
+      if (musicDate === currentDate) {
+        const updatedHomeMusics = homeMusics.filter(item => item.id !== id);
+        setHomeMusics(updatedHomeMusics);
+        setTodayListened(prev => prev - musicToDelete.minutes); // Віднімаємо хвилини від todayListened
+      }
+
+      setTotalListened(prev => prev - musicToDelete.minutes); // Віднімаємо хвилини від totalListened
+    }
+
+    await AsyncStorage.setItem('homeMusics', JSON.stringify(updatedAllMusic));
   };
-
-  useEffect(() => {
-    const loadRacetracks = async () => {
-      try {
-        const storedRacetracks = await AsyncStorage.getItem('racetracks');
-        if (storedRacetracks) {
-          setRacetracks(JSON.parse(storedRacetracks));
-        }
-      } catch (error) {
-        console.error('Error loading racetracks:', error);
-      }
-    };
-
-    loadRacetracks();
-  }, [selectedScreen, racetracks]);
-
-
-  useEffect(() => {
-    const loadHomeMusics = async () => {
-      try {
-        const storedHomeMusics = await AsyncStorage.getItem('homeMusics');
-        if (storedHomeMusics) {
-          setHomeMusics(JSON.parse(storedHomeMusics));
-        }
-      } catch (error) {
-        console.error('Error loading horses:', error);
-      }
-    };
-
-    loadHomeMusics();
-  }, [selectedScreen, racetracks]);
 
   const handleSaveHomeMusic = async () => {
     const hereMusics = JSON.parse(await AsyncStorage.getItem('homeMusics')) || [];
@@ -135,18 +159,75 @@ const HomeScreen = () => {
     const newMusic = {
       id: newId,
       date: date,
-      minutes: minutes,
+      minutes: parseInt(minutes, 10), // Перетворюємо хвилини на число
       modeOfMusic: selectedModeOfMusic,
     };
+
     try {
       hereMusics.unshift(newMusic);
-      setHomeMusics(hereMusics);
+      setAllMusic(hereMusics);
+
+      const musicDate = new Date(newMusic.date).toDateString();
+      const currentDate = new Date().toDateString();
+
+      if (musicDate === currentDate) {
+        setHomeMusics(prev => [newMusic, ...prev]);
+        setTodayListened(prev => prev + newMusic.minutes); // Оновлюємо todayListened
+      }
+
+      setTotalListened(prev => prev + newMusic.minutes); // Оновлюємо totalListened
       setModalVisible(false);
+      setMinutes('');
+      setDate(new Date());
+      setSelectedModeOfMusic('');
       await AsyncStorage.setItem('homeMusics', JSON.stringify(hereMusics));
     } catch (error) {
       console.error('Error saving homeMusic:', error);
     }
   };
+
+
+  useEffect(() => {
+    const loadHomeMusics = async () => {
+      try {
+        const storedHomeMusics = await AsyncStorage.getItem('homeMusics');
+        if (storedHomeMusics) {
+          const parsedHomeMusics = JSON.parse(storedHomeMusics);
+          const currentDate = new Date().toDateString();
+          const filteredHomeMusics = parsedHomeMusics.filter(item => {
+            const musicDate = new Date(item.date).toDateString();
+            return musicDate === currentDate;
+          });
+          setAllMusic(parsedHomeMusics);
+          setHomeMusics(filteredHomeMusics);
+          const totalMinutesToday = filteredHomeMusics.reduce((sum, item) => sum + parseInt(item.minutes, 10), 0); // Перетворюємо хвилини на число
+          setTodayListened(totalMinutesToday); // Оновлюємо todayListened
+
+          const totalMinutesAllTime = parsedHomeMusics.reduce((sum, item) => sum + parseInt(item.minutes, 10), 0); // Перетворюємо хвилини на число
+          setTotalListened(totalMinutesAllTime); // Оновлюємо totalListened
+
+          await AsyncStorage.setItem('homeMusics', JSON.stringify(parsedHomeMusics));
+        }
+      } catch (error) {
+        console.error('Error loading homeMusics:', error);
+      }
+    };
+
+    loadHomeMusics();
+
+    const now = new Date();
+    const millisTillMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0) - now;
+    const timer = setTimeout(() => {
+      setTodayListened(0);
+      setHomeMusics([]);
+      AsyncStorage.setItem('homeMusics', JSON.stringify([]));
+    }, millisTillMidnight);
+
+    return () => clearTimeout(timer);
+  }, [selectedScreen]);
+
+
+
 
   return (
     <View style={{
@@ -261,7 +342,7 @@ const HomeScreen = () => {
                       alignSelf: 'flex-start',
                       marginTop: dimensions.height * 0.03,
                     }}>
-                    10033
+                    {totalListened ? totalListened : 0}
                   </Text>
                 </View>
 
@@ -339,6 +420,7 @@ const HomeScreen = () => {
                   <View style={{
                     marginTop: dimensions.height * 0.016,
                     width: dimensions.width * 0.9,
+                    maxWidth: dimensions.width * 0.9,
                     backgroundColor: '#202020',
                     borderRadius: dimensions.width * 0.034,
                     alignSelf: 'center',
@@ -378,7 +460,7 @@ const HomeScreen = () => {
                           alignSelf: 'flex-start',
                           marginTop: dimensions.height * 0.03,
                         }}>
-                        10033
+                        {todayListened ? todayListened : 0}
                       </Text>
                     </View>
 
@@ -398,7 +480,7 @@ const HomeScreen = () => {
                       />
                     </View>
                   </View>
-                ) : (
+                ) : selectedAverageMode === 'By weeks' ? (
                   <View style={{
                     marginTop: dimensions.height * 0.016,
                     width: dimensions.width * 0.9,
@@ -409,20 +491,37 @@ const HomeScreen = () => {
                     alignItems: 'center',
                     paddingTop: dimensions.height * 0.025,
                   }}>
-                    <Image
-                      source={selectedAverageMode === 'By weeks'
-                        ? require('../assets/images/chartImage.png')
-                        : require('../assets/images/monthChartImage.png')
-                      }
-                      style={{
-                        width: dimensions.width * 0.9,
-                        height: dimensions.width * 0.5,
-                        alignSelf: 'center',
-                        marginBottom: dimensions.height * 0.025,
-                      }}
-                      resizeMode='contain'
-                    />
-
+                    <ScrollView horizontal={true} contentContainerStyle={{ alignItems: 'center' }}>
+                      <View style={{
+                        transform: [{ scale: 0.9 }],
+                        paddingBottom: dimensions.height * 0.03,
+                      }}>
+                        <BarChart
+                          data={getWeeklyData()}
+                          width={dimensions.width * 1} // Збільшення ширини графіка
+                          height={dimensions.height * 0.25}
+                          chartConfig={{
+                            strokeWidth: 1,
+                            backgroundColor: '#202020',
+                            backgroundGradientFrom: '#202020',
+                            backgroundGradientTo: '#202020',
+                            decimalPlaces: 0,
+                            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                            labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                            style: {
+                              borderRadius: dimensions.width * 0.034,
+                            },
+                            propsForBackgroundLines: {
+                              strokeDasharray: '', // solid background lines with no dashes
+                            },
+                          }}
+                          verticalLabelRotation={30}
+                          fromZero
+                          showBarTops
+                          withInnerLines={false}
+                        />
+                      </View>
+                    </ScrollView>
                     <View style={{
                       backgroundColor: '#363636',
                       width: dimensions.width * 0.9,
@@ -453,7 +552,82 @@ const HomeScreen = () => {
                           maxWidth: dimensions.width * 0.57,
                           marginLeft: dimensions.width * 0.016,
                         }}>
-                        {selectedAverageMode === 'By weeks' ? `On Thursday` : `In July`}, you listened to music the most
+                        On {getWeeklyData().labels[getWeeklyData().datasets[0].data.indexOf(Math.max(...getWeeklyData().datasets[0].data))]}, you listened to music the most
+                      </Text>
+                    </View>
+                  </View>
+                ) : (
+                  <View style={{
+                    marginTop: dimensions.height * 0.016,
+                    width: dimensions.width * 0.9,
+                    backgroundColor: '#202020',
+                    borderRadius: dimensions.width * 0.034,
+                    alignSelf: 'center',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    paddingTop: dimensions.height * 0.025,
+                  }}>
+                    <ScrollView horizontal={true} contentContainerStyle={{ alignItems: 'center' }}>
+                      <View style={{
+                        transform: [{ scale: 0.9 }],
+                        paddingBottom: dimensions.height * 0.03,
+                      }}>
+                        <BarChart
+                          data={getMonthlyData()}
+                          width={dimensions.width * 1} // Збільшення ширини графіка
+                          height={dimensions.width * 0.5}
+                          chartConfig={{
+                            backgroundColor: '#202020',
+                            backgroundGradientFrom: '#202020',
+                            backgroundGradientTo: '#202020',
+                            decimalPlaces: 0,
+                            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                            labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                            style: {
+                              borderRadius: dimensions.width * 0.034,
+                            },
+                            propsForBackgroundLines: {
+                              strokeDasharray: '', // solid background lines with no dashes
+                            },
+                          }}
+                          verticalLabelRotation={30}
+                          fromZero
+                          showBarTops
+                          withInnerLines={false}
+                        />
+                      </View>
+                    </ScrollView>
+                    <View style={{
+                      backgroundColor: '#363636',
+                      width: dimensions.width * 0.9,
+                      paddingVertical: dimensions.height * 0.01,
+                      alignItems: 'center',
+                      justifyContent: 'flex-start',
+                      paddingHorizontal: dimensions.width * 0.025,
+                      borderBottomLeftRadius: dimensions.width * 0.034,
+                      borderBottomRightRadius: dimensions.width * 0.034,
+                      flexDirection: 'row',
+                    }}>
+                      <Image
+                        source={require('../assets/images/headphonesImage.png')}
+                        style={{
+                          width: dimensions.width * 0.23,
+                          height: dimensions.width * 0.23,
+                          alignSelf: 'flex-start',
+                        }}
+                        resizeMode='contain'
+                      />
+                      <Text
+                        style={{
+                          fontFamily: fontDMSansRegular,
+                          fontWeight: 500,
+                          color: 'white',
+                          fontSize: dimensions.width * 0.043,
+                          textAlign: 'left',
+                          maxWidth: dimensions.width * 0.57,
+                          marginLeft: dimensions.width * 0.016,
+                        }}>
+                        In {getMonthlyData().labels[getMonthlyData().datasets[0].data.indexOf(Math.max(...getMonthlyData().datasets[0].data))]}, you listened to music the most
                       </Text>
                     </View>
                   </View>
@@ -641,30 +815,20 @@ const HomeScreen = () => {
             </Text>
           </TouchableOpacity>
         </View>
-      ) : selectedScreen === 'LocDetails' ? (
-        <LocDetailsScreen setSelectedScreen={setSelectedScreen} selectedHippodromeLoc={selectedHippodromeLoc} setSelectedHippodromeLoc={setSelectedHippodromeLoc} />
       ) : selectedScreen === 'Settings' ? (
         <SettingsScreen setSelectedScreen={setSelectedScreen} selectedScreen={selectedScreen} />
-      ) : selectedScreen === 'Racetracks' ? (
-        <RacetracksScreen setSelectedScreen={setSelectedScreen} racetracks={racetracks} setRacetracks={setRacetracks} />
-      ) : selectedScreen === 'Horses' ? (
-        <HorsesScreen setSelectedScreen={setSelectedScreen} horses={horses} setHorses={setHorses} />
-      ) : selectedScreen === 'AddRacetrack' ? (
-        <AddRacetrackScreen setSelectedScreen={setSelectedScreen} racetracks={racetracks} setRacetracks={setRacetracks} />
-      ) : selectedScreen === 'AddHorse' ? (
-        <AddHorseScreen setSelectedScreen={setSelectedScreen} horses={horses} setHorses={setHorses} />
       ) : selectedScreen === 'Articles' ? (
         <ArticlesScreen setSelectedScreen={setSelectedScreen} />
       ) : selectedScreen === 'Player' ? (
-        <PlayerScreen setSelectedScreen={setSelectedScreen} />
-      ) : selectedScreen === 'Quiz' ? (
-        <QuizzHippodromeScreen setSelectedScreen={setSelectedScreen} isQuizStarted={isQuizStarted} setIsQuizStarted={setIsQuizStarted} />
+        <PlayerScreen setSelectedScreen={setSelectedScreen} selectedScreen={selectedScreen} />
+      ) : selectedScreen === 'Piano' ? (
+        <PianoScreen setSelectedScreen={setSelectedScreen} selectedScreen={selectedScreen} isPianoStarted={isPianoStarted} setIsPianoStarted={setIsPianoStarted} />
       ) : null}
 
       {selectedScreen !== 'BubblesGame' &&
         selectedScreen !== 'LocDetails' &&
         selectedScreen !== 'Settings' &&
-        !(selectedScreen === 'Quiz' && isQuizStarted) && (
+        !(selectedScreen === 'Piano' && isPianoStarted) && (
           <View
             style={{
               position: 'absolute',
@@ -744,6 +908,9 @@ const HomeScreen = () => {
           }}>
             <TouchableOpacity onPress={() => {
               setModalVisible(false);
+              setMinutes('');
+              setSelectedModeOfMusic('');
+              setDate(new Date());
             }} style={{
               flexDirection: 'row',
               alignItems: 'center',
@@ -847,6 +1014,7 @@ const HomeScreen = () => {
                   value={date || new Date()}
                   mode="date"
                   display="inline"
+                  maximumDate={new Date()}
                   onChange={(event, selectedDate) => {
                     handleDateChange(event, selectedDate);
                   }}
@@ -964,14 +1132,18 @@ const HomeScreen = () => {
           setDeleteHomeMusicModalVisible(!deleteHomeMusicModalVisible);
         }}
       >
-        <View style={{
-          backgroundColor: 'rgba(0, 0, 0, 0.7)',
-          width: dimensions.width,
-          zIndex: 1000,
-          height: dimensions.height,
-          alignSelf: 'center',
-          justifyContent: 'flex-end',
-        }}>
+        <TouchableOpacity
+          onPress={() => {
+            setDeleteHomeMusicModalVisible(false);
+          }}
+          style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            width: dimensions.width,
+            zIndex: 1000,
+            height: dimensions.height,
+            alignSelf: 'center',
+            justifyContent: 'flex-end',
+          }}>
           <SafeAreaView style={{
             flex: 1,
             justifyContent: 'flex-end'
@@ -1032,11 +1204,7 @@ const HomeScreen = () => {
               </TouchableOpacity>
             </View>
           </SafeAreaView>
-        </View>
-
-
-
-
+        </TouchableOpacity>
       </Modal>
     </View>
   );

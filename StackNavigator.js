@@ -59,12 +59,12 @@ const AppNavigator = () => {
   if (initializingHippodromeGuideApp) {
     return (
       <View style={{
-        backgroundColor: '#181A29',
+        backgroundColor: '#0D0D0D',
         alignItems: 'center',
         flex: 1,
         justifyContent: 'center',
       }}>
-        <ActivityIndicator size="large" color="white" />
+        <ActivityIndicator size="large" color="#B38C31" />
       </View>
     );
   }

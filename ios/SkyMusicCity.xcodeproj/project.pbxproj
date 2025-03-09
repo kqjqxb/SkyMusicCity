@@ -26,6 +26,20 @@
 		B09576B7EF844B4CACF77C74 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71BA6C33D4AB4F8BA2E59022 /* Poppins-Italic.ttf */; };
 		B5ABF5C2288140D980E99268 /* Cormorant-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26FC1A17E6B4474587931931 /* Cormorant-SemiBold.ttf */; };
 		B971393ABDA542C78F043B9C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1DBBC2ED99A443088DDEB333 /* Poppins-Regular.ttf */; };
+		CE95A4C82D7DA96000FD7EC2 /* piano14.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE95A4C22D7DA96000FD7EC2 /* piano14.wav */; };
+		CE95A4C92D7DA96000FD7EC2 /* pianoBlack5.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE95A4C72D7DA96000FD7EC2 /* pianoBlack5.wav */; };
+		CE95A4CA2D7DA96000FD7EC2 /* piano12.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE95A4C02D7DA96000FD7EC2 /* piano12.wav */; };
+		CE95A4CB2D7DA96000FD7EC2 /* piano13.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE95A4C12D7DA96000FD7EC2 /* piano13.wav */; };
+		CE95A4CC2D7DA96000FD7EC2 /* piano7.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE95A4BD2D7DA96000FD7EC2 /* piano7.wav */; };
+		CE95A4CD2D7DA96000FD7EC2 /* pianoBlack3.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE95A4C52D7DA96000FD7EC2 /* pianoBlack3.wav */; };
+		CE95A4CE2D7DA96000FD7EC2 /* pianoBlack1.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE95A4C32D7DA96000FD7EC2 /* pianoBlack1.wav */; };
+		CE95A4CF2D7DA96000FD7EC2 /* pianoBlack4.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE95A4C62D7DA96000FD7EC2 /* pianoBlack4.wav */; };
+		CE95A4D02D7DA96000FD7EC2 /* piano6.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE95A4BC2D7DA96000FD7EC2 /* piano6.wav */; };
+		CE95A4D12D7DA96000FD7EC2 /* piano1.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE95A4BA2D7DA96000FD7EC2 /* piano1.wav */; };
+		CE95A4D22D7DA96000FD7EC2 /* piano9.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE95A4BE2D7DA96000FD7EC2 /* piano9.wav */; };
+		CE95A4D32D7DA96000FD7EC2 /* pianoBlack2.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE95A4C42D7DA96000FD7EC2 /* pianoBlack2.wav */; };
+		CE95A4D42D7DA96000FD7EC2 /* piano10.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE95A4BF2D7DA96000FD7EC2 /* piano10.wav */; };
+		CE95A4D52D7DA96000FD7EC2 /* piano3.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE95A4BB2D7DA96000FD7EC2 /* piano3.wav */; };
 		DA9B38973BC94844B0234366 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC18084AF5A749A2B5959E79 /* Montserrat-Regular.ttf */; };
 		DC72E50CDB1942B5A3AE620D /* Cormorant-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70AD588F9DAF4487AF4314DC /* Cormorant-Regular.ttf */; };
 		E31F7081313B41E9B2027F88 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46B94DC309C14B029FF29C7D /* Poppins-Medium.ttf */; };
@@ -53,12 +67,12 @@
 		41BD2B69C35F4C35A740E896 /* MontserratAlternates-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-Bold.ttf"; path = "../src/assets/fonts/MontserratAlternates-Bold.ttf"; sourceTree = "<group>"; };
 		46B94DC309C14B029FF29C7D /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../src/assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		49468EFC91B945BAAFB3D3E7 /* SFProText-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProText-Regular.ttf"; path = "../src/assets/fonts/SFProText-Regular.ttf"; sourceTree = "<group>"; };
-		4FD7B90E808749F08257F4FB /* DMSans18pt-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans18pt-Regular.ttf"; path = "../src/assets/fonts/DMSans18pt-Regular.ttf"; sourceTree = "<group>"; };
-		55F3DF27318743F095A546A6 /* DMSans18pt-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans18pt-Black.ttf"; path = "../src/assets/fonts/DMSans18pt-Black.ttf"; sourceTree = "<group>"; };
+		4FD7B90E808749F08257F4FB /* DMSans18pt-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans18pt-Regular.ttf"; path = "../src/assets/fonts/DMSans18pt-Regular.ttf"; sourceTree = "<group>"; };
+		55F3DF27318743F095A546A6 /* DMSans18pt-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans18pt-Black.ttf"; path = "../src/assets/fonts/DMSans18pt-Black.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-SkyMusicCity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyMusicCity.release.xcconfig"; path = "Target Support Files/Pods-SkyMusicCity/Pods-SkyMusicCity.release.xcconfig"; sourceTree = "<group>"; };
 		5D4ED9C29C124B779E74D78E /* Cormorant-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Cormorant-Medium.ttf"; path = "../src/assets/fonts/Cormorant-Medium.ttf"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-SkyMusicCity.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SkyMusicCity.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6369F1878C504A129CC69293 /* DMSans18pt-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans18pt-Bold.ttf"; path = "../src/assets/fonts/DMSans18pt-Bold.ttf"; sourceTree = "<group>"; };
+		6369F1878C504A129CC69293 /* DMSans18pt-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans18pt-Bold.ttf"; path = "../src/assets/fonts/DMSans18pt-Bold.ttf"; sourceTree = "<group>"; };
 		70AD588F9DAF4487AF4314DC /* Cormorant-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Cormorant-Regular.ttf"; path = "../src/assets/fonts/Cormorant-Regular.ttf"; sourceTree = "<group>"; };
 		71BA6C33D4AB4F8BA2E59022 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Italic.ttf"; path = "../src/assets/fonts/Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SkyMusicCity/AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,8 +85,22 @@
 		BCC1A2A466C549FAB889F2BB /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../src/assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
 		BD04D3B508A44CD3AC49ABC4 /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Italic.ttf"; path = "../src/assets/fonts/Montserrat-Italic.ttf"; sourceTree = "<group>"; };
 		C60D4F978B764CC88476E93C /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.ttf"; path = "../src/assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		CE95A4BA2D7DA96000FD7EC2 /* piano1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = piano1.wav; sourceTree = "<group>"; };
+		CE95A4BB2D7DA96000FD7EC2 /* piano3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = piano3.wav; sourceTree = "<group>"; };
+		CE95A4BC2D7DA96000FD7EC2 /* piano6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = piano6.wav; sourceTree = "<group>"; };
+		CE95A4BD2D7DA96000FD7EC2 /* piano7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = piano7.wav; sourceTree = "<group>"; };
+		CE95A4BE2D7DA96000FD7EC2 /* piano9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = piano9.wav; sourceTree = "<group>"; };
+		CE95A4BF2D7DA96000FD7EC2 /* piano10.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = piano10.wav; sourceTree = "<group>"; };
+		CE95A4C02D7DA96000FD7EC2 /* piano12.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = piano12.wav; sourceTree = "<group>"; };
+		CE95A4C12D7DA96000FD7EC2 /* piano13.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = piano13.wav; sourceTree = "<group>"; };
+		CE95A4C22D7DA96000FD7EC2 /* piano14.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = piano14.wav; sourceTree = "<group>"; };
+		CE95A4C32D7DA96000FD7EC2 /* pianoBlack1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pianoBlack1.wav; sourceTree = "<group>"; };
+		CE95A4C42D7DA96000FD7EC2 /* pianoBlack2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pianoBlack2.wav; sourceTree = "<group>"; };
+		CE95A4C52D7DA96000FD7EC2 /* pianoBlack3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pianoBlack3.wav; sourceTree = "<group>"; };
+		CE95A4C62D7DA96000FD7EC2 /* pianoBlack4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pianoBlack4.wav; sourceTree = "<group>"; };
+		CE95A4C72D7DA96000FD7EC2 /* pianoBlack5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pianoBlack5.wav; sourceTree = "<group>"; };
 		D4C3B0B5D6854D78A5473AF9 /* MontserratAlternates-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-Regular.ttf"; path = "../src/assets/fonts/MontserratAlternates-Regular.ttf"; sourceTree = "<group>"; };
-		E562D0CEF50344DE9D67FE97 /* DMSans18pt-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans18pt-Medium.ttf"; path = "../src/assets/fonts/DMSans18pt-Medium.ttf"; sourceTree = "<group>"; };
+		E562D0CEF50344DE9D67FE97 /* DMSans18pt-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans18pt-Medium.ttf"; path = "../src/assets/fonts/DMSans18pt-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FE7582E60CD341BDA9CD47D1 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../src/assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +141,20 @@
 		673FA1B912C0459AB8665F03 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE95A4BA2D7DA96000FD7EC2 /* piano1.wav */,
+				CE95A4BB2D7DA96000FD7EC2 /* piano3.wav */,
+				CE95A4BC2D7DA96000FD7EC2 /* piano6.wav */,
+				CE95A4BD2D7DA96000FD7EC2 /* piano7.wav */,
+				CE95A4BE2D7DA96000FD7EC2 /* piano9.wav */,
+				CE95A4BF2D7DA96000FD7EC2 /* piano10.wav */,
+				CE95A4C02D7DA96000FD7EC2 /* piano12.wav */,
+				CE95A4C12D7DA96000FD7EC2 /* piano13.wav */,
+				CE95A4C22D7DA96000FD7EC2 /* piano14.wav */,
+				CE95A4C32D7DA96000FD7EC2 /* pianoBlack1.wav */,
+				CE95A4C42D7DA96000FD7EC2 /* pianoBlack2.wav */,
+				CE95A4C52D7DA96000FD7EC2 /* pianoBlack3.wav */,
+				CE95A4C62D7DA96000FD7EC2 /* pianoBlack4.wav */,
+				CE95A4C72D7DA96000FD7EC2 /* pianoBlack5.wav */,
 				B590095C2E56436CB5F8B2E4 /* Cormorant-Bold.ttf */,
 				3CB6A29918024E338E030A14 /* Cormorant-Italic.ttf */,
 				5D4ED9C29C124B779E74D78E /* Cormorant-Medium.ttf */,
@@ -255,6 +297,20 @@
 				DA9B38973BC94844B0234366 /* Montserrat-Regular.ttf in Resources */,
 				F17697B9B2CF429784693E77 /* Montserrat-SemiBold.ttf in Resources */,
 				06C51F05DFBF4FC69A191BB2 /* MontserratAlternates-Black.ttf in Resources */,
+				CE95A4C82D7DA96000FD7EC2 /* piano14.wav in Resources */,
+				CE95A4C92D7DA96000FD7EC2 /* pianoBlack5.wav in Resources */,
+				CE95A4CA2D7DA96000FD7EC2 /* piano12.wav in Resources */,
+				CE95A4CB2D7DA96000FD7EC2 /* piano13.wav in Resources */,
+				CE95A4CC2D7DA96000FD7EC2 /* piano7.wav in Resources */,
+				CE95A4CD2D7DA96000FD7EC2 /* pianoBlack3.wav in Resources */,
+				CE95A4CE2D7DA96000FD7EC2 /* pianoBlack1.wav in Resources */,
+				CE95A4CF2D7DA96000FD7EC2 /* pianoBlack4.wav in Resources */,
+				CE95A4D02D7DA96000FD7EC2 /* piano6.wav in Resources */,
+				CE95A4D12D7DA96000FD7EC2 /* piano1.wav in Resources */,
+				CE95A4D22D7DA96000FD7EC2 /* piano9.wav in Resources */,
+				CE95A4D32D7DA96000FD7EC2 /* pianoBlack2.wav in Resources */,
+				CE95A4D42D7DA96000FD7EC2 /* piano10.wav in Resources */,
+				CE95A4D52D7DA96000FD7EC2 /* piano3.wav in Resources */,
 				F90615F6D4C4426EBF809A37 /* MontserratAlternates-Bold.ttf in Resources */,
 				F6AEA1C16D4E4E958FF653E1 /* MontserratAlternates-Regular.ttf in Resources */,
 				56837C396D524154933C84BA /* Poppins-Black.ttf in Resources */,
